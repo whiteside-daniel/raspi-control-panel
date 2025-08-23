@@ -1,6 +1,5 @@
 print('run start')
 import RPi.GPIO as GPIO
-import time
 
 LSBFIRST = 1
 MSBFIRST = 2
@@ -8,15 +7,14 @@ MSBFIRST = 2
 dataPin = 7 #DS pin of 74HC595 (Pin 14)
 latchPin = 11 #ST_CP or RCLK Pin of 74HC595 (Pin12)
 clockPin = 13 #CH_CP Pin of 74HC595 (Pin11)
-currentState = 0b11111111;
+currentState = 0b00000000
 
-def setup():
+def setup_relay_board_pins():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(dataPin, GPIO.OUT)
     GPIO.setup(latchPin, GPIO.OUT)
     GPIO.setup(clockPin, GPIO.OUT)
     write_state(currentState)
-    time.sleep(1)
 
 def write_state(data):
     GPIO.output(latchPin, GPIO.LOW)
@@ -26,7 +24,8 @@ def write_state(data):
         GPIO.output(clockPin, GPIO.LOW)
     GPIO.output(latchPin, GPIO.HIGH) #Latch high to update outputs
 
-def toggle_relay(tState):
+def toggle_relay(relay):
+    tState = my_dict[relay]
     nState = 0
     cState = currentState
     binString = str(bin(cState))
@@ -94,16 +93,3 @@ my_dict = {
     "g" : 2,
     "h" : 1,
 }
-setup()
-
-print('current state ' + str(bin(currentState)))
-print('toggle')
-while(True):
-    time.sleep(1)
-    currentState = toggle_relay(my_dict["h"])
-    time.sleep(1)
-    currentState = toggle_relay(my_dict["g"])
-    time.sleep(1)
-    currentState = toggle_relay(my_dict["h"])
-    time.sleep(1)
-    currentState = toggle_relay(my_dict["g"])
