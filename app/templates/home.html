@@ -7,7 +7,6 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/home.css') }}"></script>
 	</head>
 	<body>
-{% if var %}
 	<div class="header-bar">
 		<h1>SWITCHES</h1>
 		<h3><a href="/advanced">ADVANCED PANEL</a></h3>
@@ -30,7 +29,7 @@
 			</div>
 			<div class="voltage-monitor-reading">	
 				<h2>House Batteries</h2>
-				<span id="house-battery-voltage" class="voltage-monitor-reading-number">13.9</span><span> VDC</span>
+				<span id="house-battery-voltage" class="voltage-monitor-reading-number">{{ house_voltage }}</span><span> VDC</span>
 			</div>
 		</div>
 		<div class="voltage-monitor">
@@ -43,8 +42,5 @@
 			</div>
 		</div>
 	</div>
-{% else %}
-	<div><h1>UNABLE TO LOAD PYTHON VARIABLES</h1></div>
-{% endif %}
 	</body>
 </html>
