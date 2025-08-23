@@ -16,9 +16,9 @@ def toggleRoute(relay_id):
     toggle_relay(relay_id)
     return f' Relay {relay_id}'
 
-@app.route('/test')
-def testRoute():
-    return 'working'
+@app.route('/advanced')
+def advanced():
+    return render_template('advanced.html')
 
 if __name__ == '__main__':
     app.run(debug=False)
