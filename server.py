@@ -14,7 +14,7 @@ def home():
 def toggleRoute(relay_id):
     print('toggling')
     toggle_relay(relay_id)
-    return f' Relay {relay_id} On'
+    return f' Relay {relay_id}'
 
 @app.route('/test')
 def testRoute():

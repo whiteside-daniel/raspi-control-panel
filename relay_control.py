@@ -1,6 +1,5 @@
-print('run start')
 import RPi.GPIO as GPIO
-import time
+#import time
 
 LSBFIRST = 1
 MSBFIRST = 2
@@ -97,5 +96,3 @@ my_dict = {
     "G" : 2,
     "H" : 1,
 }
-
-setup_relay_board_pins()

@@ -1,0 +1,21 @@
+button {
+	background-color:powderblue;
+	width: 160px;
+	height: 120px;
+	border-radius: 10px;
+	margin: 10px;
+	font-size: x-large;
+}
+h1 {
+	color: #0056b3;
+}
+relay-btn-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	height: 75vw;
+	border: solid 2px;
+}
+voltage-monitor-container {
+	border: solid;
+}
