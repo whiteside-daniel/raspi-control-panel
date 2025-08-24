@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Dashboard - RV Monitor</title>
+		<!-- <script src="https://unpkg.com/htmx.org@1.9.6"></script> -->
+		<script src="{{ url_for('static', filename='scripts/script-htmx.js') }}"></script>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/home.css') }}"></script>
+	</head>
+	<body>
+	<div class="header-bar">
+		<h1>SWITCHES</h1>
+		<h3><a href="/advanced">ADVANCED PANEL</a></h3>
+	</div>
+	<div class="relay-btn-container">
+		<div class="relay-btn"><button hx-get="/toggle_relay/A" hx-target="this">Relay A</button></div>
+		<div class="relay-btn"><button hx-get="/toggle_relay/B" hx-target="this">Relay B</button></div>
+		<div class="relay-btn"><button hx-get="/toggle_relay/C" hx-target="this">Relay C</button></div>
+		<div class="relay-btn"><button hx-get="/toggle_relay/D" hx-target="this">Relay D</button></div>
+		<div class="relay-btn"><button hx-get="/toggle_relay/E" hx-target="this">Relay E</button></div>
+		<div class="relay-btn"><button hx-get="/toggle_relay/F" hx-target="this">Relay F</button></div>
+		<div class="relay-btn"><button hx-get="/toggle_relay/G" hx-target="this">Relay G</button></div>
+		<div class="relay-btn"><button hx-get="/toggle_relay/H" hx-target="this">Relay H</button></div>
+	</div>
+	<div><h1>BATTERY</h1></div>
+	<div class="voltage-monitor-container">
+		<div class="voltage-monitor">
+			<div class="voltage-monitor-img">
+				<img src="{{ url_for('static', filename='img/house.svg') }}" alt="house icon" width="100" height="100" />
+			</div>
+			<div class="voltage-monitor-reading">	
+				<h2>House Batteries</h2>
+				<span id="house-battery-voltage" class="voltage-monitor-reading-number">{{ house_voltage }}</span><span> VDC</span>
+			</div>
+		</div>
+		<div class="voltage-monitor">
+			<div class="voltage-monitor-img">
+				<img src="{{ url_for('static', filename='img/truck.svg') }}" alt="car icon" width="100" height="100" />
+			</div>
+			<div class="voltage-monitor-reading">
+				<h2>Car Batteries</h2>
+				<span id="car-battery-voltage" class="voltage-monitor-reading-number">12.3</span><span> VDC</span>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
