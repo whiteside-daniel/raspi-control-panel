@@ -15,3 +15,7 @@ put your MySQL password and username into the .env file
 
 ## Relay Drivers
 Helpful note: relays must be grounded to activate (therefore sometimes 0 means on depending on the context). This was quite confusing for a while
+
+## MCP3008 ADC
+4 pins to Raspi
+- 

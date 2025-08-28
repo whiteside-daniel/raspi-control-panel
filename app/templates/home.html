@@ -12,14 +12,69 @@
 		<h3><a href="/advanced">ADVANCED PANEL</a></h3>
 	</div>
 	<div class="relay-btn-container">
-		<div class="relay-btn"><button hx-get="/toggle_relay/A" hx-target="this">Relay A</button></div>
-		<div class="relay-btn"><button hx-get="/toggle_relay/B" hx-target="this">Relay B</button></div>
-		<div class="relay-btn"><button hx-get="/toggle_relay/C" hx-target="this">Relay C</button></div>
-		<div class="relay-btn"><button hx-get="/toggle_relay/D" hx-target="this">Relay D</button></div>
-		<div class="relay-btn"><button hx-get="/toggle_relay/E" hx-target="this">Relay E</button></div>
-		<div class="relay-btn"><button hx-get="/toggle_relay/F" hx-target="this">Relay F</button></div>
-		<div class="relay-btn"><button hx-get="/toggle_relay/G" hx-target="this">Relay G</button></div>
-		<div class="relay-btn"><button hx-get="/toggle_relay/H" hx-target="this">Relay H</button></div>
+		{% if relay_state["A"] == True %}
+		<div class="relay-btn relay-active">
+		{% else %}
+		<div class="relay-btn">
+		{% endif %}
+			<button hx-get="/toggle_relay/A" hx-target="this" onClick="window.location.href='/'">Relay A</button>
+		</div>
+		
+		{% if relay_state["B"] == True %}
+		<div class="relay-btn relay-active">
+		{% else %}
+		<div class="relay-btn">
+		{% endif %}
+			<button hx-get="/toggle_relay/B" hx-target="this" onClick="window.location.href='/'">Relay B</button>
+		</div>
+		
+		{% if relay_state["C"] == True %}
+		<div class="relay-btn relay-active">
+		{% else %}
+		<div class="relay-btn">
+		{% endif %}
+			<button hx-get="/toggle_relay/C" hx-target="this" onClick="window.location.href='/'">Relay C</button>
+		</div>
+		
+		{% if relay_state["D"] == True %}
+		<div class="relay-btn relay-active">
+		{% else %}
+		<div class="relay-btn">
+		{% endif %}
+			<button hx-get="/toggle_relay/D" hx-target="this" onClick="window.location.href='/'">Relay D</button>
+		</div>
+		
+		{% if relay_state["E"] == True %}
+		<div class="relay-btn relay-active">
+		{% else %}
+		<div class="relay-btn">
+		{% endif %}
+			<button hx-get="/toggle_relay/E" hx-target="this" onClick="window.location.href='/'">Relay E</button>
+		</div>
+		
+		{% if relay_state["F"] == True %}
+		<div class="relay-btn relay-active">
+		{% else %}
+		<div class="relay-btn">
+		{% endif %}
+			<button hx-get="/toggle_relay/F" hx-target="this" onClick="window.location.href='/'">Relay F</button>
+		</div>
+		
+		{% if relay_state["G"] == True %}
+		<div class="relay-btn relay-active">
+		{% else %}
+		<div class="relay-btn">
+		{% endif %}
+			<button hx-get="/toggle_relay/G" hx-target="this" onClick="window.location.href='/'">Relay G</button>
+		</div>
+		
+		{% if relay_state["H"] == True %}
+		<div class="relay-btn relay-active">
+		{% else %}
+		<div class="relay-btn">
+		{% endif %}
+			<button hx-get="/toggle_relay/H" hx-target="this" onClick="window.location.href='/'">Relay H</button>
+		</div>
 	</div>
 	<div><h1>BATTERY</h1></div>
 	<div class="voltage-monitor-container">

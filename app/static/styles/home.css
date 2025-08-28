@@ -28,6 +28,9 @@ h1 {
 	width: 20vw;
 	height: 25vh;
 }
+.relay-active > button {
+	background-color:green;
+}
 .voltage-monitor-container {
 	display: flex;
 	flex-direction: row;
