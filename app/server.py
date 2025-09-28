@@ -19,8 +19,7 @@ def toggleRoute(relay_id):
     toggle_relay(relay_id)
     current_relay_state = read_relay_state()
     print(current_relay_state)
-    battery_voltage = read_mcp3008(0)
-    return f"Toggled {relay_id}"
+    return redirect(url_for('home'))  # Redirect back to updated home page
 
 @app.route('/advanced')
 def advanced():
