@@ -8,6 +8,7 @@ MSBFIRST = 2
 dataPin = 7 #DS pin of 74HC595 (Pin 14)
 latchPin = 11 #ST_CP or RCLK Pin of 74HC595 (Pin12)
 clockPin = 13 #CH_CP Pin of 74HC595 (Pin11)
+invertPin = 15 #control pin, powers inverter which switches shift register on/off
 currentState = 0b00000000
 
 my_dict = {
@@ -24,6 +25,7 @@ my_dict = {
 
 def setup_relay_board_pins(dp=7, lp=11, cp=13):
     global currentState
+    global invertPin
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(dp, GPIO.OUT)
     GPIO.setup(lp, GPIO.OUT)
@@ -230,4 +232,13 @@ def run_relay_test():
     time.sleep(1)
     read_relay_state()
     
+def testControlPin():
+    GPIO.setmode(GPIO.BOARD)
+    global invertPin
+    GPIO.setup(invertPin, GPIO.OUT)
+    GPIO.output(invertPin, GPIO.HIGH)
+    time.sleep(8)
+    GPIO.output(invertPin, GPIO.LOW)
+    
 #run_relay_test()
+#testControlPin()
